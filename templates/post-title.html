@@ -1,0 +1,14 @@
+<div class="pull-right datetime">
+    <em>{{ post.day }}</em>
+    <span>{{ post.month }}</span>
+    </div>
+    <h2>
+    <a href="{% url 'post' post.slug %}">{{ post.title }}</a>
+    </h2>
+    <div>
+    {% for tag in post.tags.all %}
+        <div class='tag'>
+            {{ tag }}
+        </div>
+    {% endfor %}
+</div>

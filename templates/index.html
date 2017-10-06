@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load markdown_deux_tags%}
+
+{% block css %}
+<style>
+  header.masthead{
+    background-image: url(http://oeofa3lc2.bkt.clouddn.com/blog-preface.jpg);
+  }
+  .masthead>.site-heading {
+      padding-top: 140px!important;
+      padding-bottom: 150px!important;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+{% for post in posts %}
+  <article>
+    {% include 'post-title.html' %}
+    <img width="100%" height="300px" src="{{ post.illustration }}">
+    <div>
+      <p>{{ post.summary | markdown}}</p>
+    </div>
+    <div>
+      <a href="{% url 'post' post.slug %}">Read More..</a>
+    </div>
+    <hr>
+  </article>
+{% endfor %}
+
+<!-- Pager -->
+  <ul class="pagination">
+    {% if page == 1 %}
+      <li class="page-item"><a class="page-link" style="color: #aaa"><span>&laquo;</span></a></li>
+    {% else %}
+      <li class="page-item"><a class="page-link" href="{% url 'page' page|add:-1 %}"><span>&laquo;</span></a></li>
+    {% endif %}
+    {% if page > 3 %}
+      <li class="page-item"><a class="page-link" style="color: #aaa">...</a></li>
+    {% endif %}    
+    {% if page > 2 %}
+      <li class="page-item"><a class="page-link" href="{% url 'page' page|add:-2 %}">{{ page|add:-2 }}</a></li>
+    {% endif %}
+    {% if page > 1 %}
+      <li class="page-item"><a class="page-link" href="{% url 'page' page|add:-1 %}">{{ page|add:-1 }}</a></li>
+    {% endif %}
+      <li class="page-item"><a class="page-link" style="color: #aaa">{{ page }}</a></li>
+    {% if page < maxPage %}
+      <li class="page-item"><a class="page-link" href="{% url 'page' page|add:1 %}">{{ page|add:1 }}</a></li>
+    {% endif %}
+    {% if page|add:1 < maxPage %}
+      <li class="page-item"><a class="page-link" href="{% url 'page' page|add:2 %}">{{ page|add:2 }}</a></li>
+    {% endif %}
+    {% if page|add:2 < maxPage %}
+    <li class="page-item"><a class="page-link" style="color: #aaa">...</a></li>
+    {% endif %}   
+    {% if page == maxPage %}
+      <li class="page-item"><a class="page-link" style="color: #aaa"><span>&raquo;</span></a></li>
+    {% else %}
+      <li class="page-item"><a class="page-link" href="{% url 'page' page|add:1 %}"><span>&raquo;</span></a></li>
+    {% endif %}        
+  </ul>
+
+{% endblock %}
