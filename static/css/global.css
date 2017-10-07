@@ -4,7 +4,10 @@
 
 #mainNav .navbar-nav>li.nav-item>a {
     font-weight: normal!important;
-    font-size: 14.4px;
+    font-size: 14px;
+    padding: 4px 8px;
+    margin: 0px 8px;
+    text-transform: none;
 }
 
 #mainNav .navbar-brand{
@@ -93,5 +96,13 @@ article>div>a {
     display: block;
     font-weight: bold;
     font-size: 24px;
+    font-style: normal;
+}
+
+blockquote{
+    border-left: 10px solid #F0F2F4;
+    margin: 1.7rem 0;
+    padding-left: .85rem;
+    font-size: 1rem;
     font-style: normal;
 }

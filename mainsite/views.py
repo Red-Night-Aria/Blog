@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post
+from .models import Post, Pastime
 from django.http import Http404
 from math import ceil
 
@@ -46,3 +46,12 @@ def post(request, slug):
 
 def chatter(request):
     return render(request, 'chatter.html')
+
+def pastime(request):
+    ctx = {
+        'items' : Pastime.objects.all()
+    }
+    return render(request, 'pastime.html', ctx)
+
+def FM(request):
+    return render(request, 'FM.html')

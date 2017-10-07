@@ -19,7 +19,7 @@ class Post(models.Model):
     body = models.TextField('正文')
     pub_date = models.DateTimeField(auto_now_add=True)
     illustration = models.CharField('配图', max_length=256, null=True)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, null=True)
     summary = models.TextField('摘要', default="请输入摘要")
     isTech = models.BooleanField(default=False)
 
@@ -34,9 +34,15 @@ class Pastime(models.Model):
         阅读
     """
 
+    CATEGORYS = (
+        ('M', 'Movie'),
+        ('B', 'Book'),
+        ('G', 'Game')
+    )
     illustration = models.CharField('配图', max_length=256, null=True)
     name = models.CharField('标题', max_length=32)
-    isFin = models.BooleanField('是否阅读完毕', default=False)
+    view = models.CharField('简评', max_length=256, default="")
+    category = models.CharField('类别', max_length=1, choices=CATEGORYS, default='M')
     finTime = models.DateTimeField(auto_now=True)
 
     def __str__(self):

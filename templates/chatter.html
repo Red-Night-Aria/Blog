@@ -2,10 +2,19 @@
 
 {% block css %}
     {% include 'subsite-css.html' %}
+    <style>
+            #link-Chatter{
+                border-top: 1px solid #1BB3E9;
+            }    
+    </style>
 {% endblock %}
 
 {% block content %}
-<p>
-    {% lorem %}
-</p>
+<article>
+    <h2>Chatter</h2>
+    <blockquote>
+        “...Espresso很苦啊，应该怎么喝？”<br /><br />
+        “抱歉，我都是早上就着两个包子喝的。”
+    </blockquote>
+</article>
 {% endblock %}

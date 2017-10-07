@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block css %}
+{% include 'subsite-css.html' %}
+<style>
+#link-FM{
+    border-top: 1px solid #1BB3E9;
+}
+#player{
+    margin-top: 3rem;
+}    
+</style>
+{% endblock %}
+
+{% block content %}
+<article>
+    <h2>FM</h2>
+    <div class="btn-group pull-right" role="group" aria-label="Basic example">
+        <button id='button0' type="button" class="btn btn-primary " disabled onclick="toggle()">发呆</button>
+        <button id='button1' type="button" class="btn btn-danger" onclick="toggle()">不困</button>
+    </div>
+    <div id='player'>
+            <iframe id="yunmusic" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=949351552&auto=1&height=430"></iframe>
+    </div>
+</article>
+{% endblock %}
+
+{% block otherJS %}
+<script>
+    function toggle(id){
+        if ($('#button0').attr('disabled')){
+            console.log(1)
+            $('#button0').removeAttr('disabled')
+            $('#button1').attr('disabled', 'disabled')
+            $('#yunmusic').attr('src','//music.163.com/outchain/player?type=0&id=949346825&auto=1&height=430')
+        }
+        else {
+            console.log(0)
+            $('#button1').removeAttr('disabled')
+            $('#button0').attr('disabled', 'disabled')
+            $('#yunmusic').attr('src','//music.163.com/outchain/player?type=0&id=949351552&auto=1&height=430')
+        }
+
+        // $('#yunmusic').attr('src', $('#yunmusic').attr('src'));
+    }
+</script>
+{% endblock %}
