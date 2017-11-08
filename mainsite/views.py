@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post, Pastime
-from django.http import Http404
+from django.http import Http404, HttpResponseNotFound
 from math import ceil
 
 # Create your views here.
@@ -14,7 +14,7 @@ def page(request, num):
     posts = Post.objects.all()
 
     if (num-1)*ENTRY_PER_PAGE >= len(posts):
-        raise Http404("Oops, 找不到指定页面")
+        return HttpResponseNotFound("<h1>很遗憾，这个博主似乎有些懒散。</h1>")
 
     ctx = {
         'posts': posts.order_by('-pub_date')[(num-1)*ENTRY_PER_PAGE: min(num*ENTRY_PER_PAGE, len(posts))],
