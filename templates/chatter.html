@@ -12,17 +12,13 @@
 {% block content %}
 <article>
     <h2>Chatter</h2>
-    <!--blockquote>
-        “...Espresso很苦啊，应该怎么喝？”<br /><br />
-        “抱歉，我都是早上就着两个包子喝的。”
-    </blockquote-->
     <p>{% lorem %}</p>
 </article>
 
 <div id="disqus_thread"></div>
 <script>
 var disqus_config = function () {
-this.page.url = "{{ currentPath }}";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.url = "http://redim.space{{ currentPage }}";  // Replace PAGE_URL with your page's canonical URL variable
 this.page.identifier = 'chatter'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 (function() { // DON'T EDIT BELOW THIS LINE
