@@ -24,9 +24,9 @@ with open('/etc/secret_key.txt') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['redim.space']
+DEBUG = False 
+#DEBUG = True
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'redimBlog',
         'USER': 'redim',
-        'PASSWORD': '123456',
+        'PASSWORD': '089451',
         'HOST': 'localhost',
         'PORT': ''
     }

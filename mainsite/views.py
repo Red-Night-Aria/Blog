@@ -8,7 +8,7 @@ def index(request):
     return page(request, 1)
 
 
-ENTRY_PER_PAGE = 2
+ENTRY_PER_PAGE = 5
 def page(request, num):
     num = int(num)
     posts = Post.objects.all()

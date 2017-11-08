@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
     url(r'^page/(\d+)/$', page, name='page'),
-    url(r'^post/(\w+)/$', post, name='post'),
+    url(r'^post/([\w-]+)/$', post, name='post'),
     url(r'^chatter/$', chatter, name='chatter'),
     url(r'^pastime/$', pastime, name='pastime'),
     url(r'^FM/$', FM, name='FM')
