@@ -39,13 +39,14 @@ def post(request, slug):
     post.month = post.pub_date.strftime('%b')
 
     ctx = {
-        'post': post
+        'post': post,
+        'currentPath': request.get_full_path()
     }
 
     return render(request, 'post.html', ctx)
 
 def chatter(request):
-    return render(request, 'chatter.html')
+    return render(request, 'chatter.html', {'currentPath': request.get_full_path()})
 
 def pastime(request):
     ctx = {
@@ -54,4 +55,4 @@ def pastime(request):
     return render(request, 'pastime.html', ctx)
 
 def FM(request):
-    return render(request, 'FM.html')
+    return render(request, 'FM.html', {'currentPath': request.get_full_path()})
