@@ -25,5 +25,5 @@ urlpatterns = [
     url(r'^chatter/$', chatter, name='chatter'),
     url(r'^pastime/$', pastime, name='pastime'),
     url(r'^FM/$', FM, name='FM')
-    #url(r'^', index)
+    url(r'^', index)
 ]
