@@ -1,1 +1,5 @@
 *.md
+*.pyc
+redimBlog/settings.py
+db.sqlite3
+TODO
